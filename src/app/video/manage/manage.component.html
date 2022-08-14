@@ -17,6 +17,7 @@
   <!-- User's Video Section -->
   <div class="container mx-auto my-8">
     <!-- Video List -->
+    
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
       <div *ngFor="let clip of clips" 
         class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl bg-secondary flex flex-col justify-start">
@@ -31,10 +32,11 @@
         <div class="p-6 text-2xl">
   
           <!-- Link -->
-          <a href="#" class="font-bold mb-2">
+          <a [routerLink]="['/', '/clip', clip.docID]" class="font-bold mb-2">
             {{ clip.title }}
           </a>
-          <a href="#" class="bg-gray-400 text-white px-2 py-1 ml-2 text-sm rounded">
+          <a (click)="copyToClipboard($event, clip.docID)"
+            href="#" class="bg-gray-400 text-white px-2 py-1 ml-2 text-sm rounded">
             Copy Link
           </a>
   
